@@ -1,12 +1,35 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Navbar from "./Components/Navbar";
+import Login from "./Components/Login";
+import HomePage from "./Components/user/Homepage";
+import Register from "./Components/admin/Register";
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import Viewbook from './Components/user/Viewbook';
 
-function App() {
-  return (
-    <div className="App">
-     <h1>xvjxnvxb</h1>
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+}
+  render() {
+    return (
+      <div className='App'>
+      <Router>
+
+<Switch>
+  <Route exact path="/" component={Login} />
+  <Route path="/Register" component={Register} />
+  <div>
+    <Navbar />
+    <Route path="/homepage" component={HomePage} />
     </div>
-  );
+    </Switch>
+  </Router>
+  </div>
+    )
+  }
 }
 
-export default App;
+
